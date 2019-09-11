@@ -1,0 +1,156 @@
+.flash {
+ height:25px;
+ background-color:$flash-botton-color;
+ color:$chat-side-font-color;
+ font-size: 1rem;
+ text-align: center;
+}
+ .chat-side {
+  float: left;
+  width: 300px;
+}
+
+.side-header { 
+  height: 100px;
+  padding: 0 20px;
+  background-color: #253141;
+} 
+.box {
+  @include parallel;
+  line-height: 100px;
+  justify-content: space-between;
+  color:$chat-side-font-color;
+  &__username {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__btn{
+    color:$chat-side-font-color;
+    text-decoration: none;
+  }
+}
+.groups {
+  height: calc(100vh - 100px);
+  padding: 20px 20px 0 20px;
+  background-color: #2f3e51;
+  font-weight: bold;
+}
+.group  {
+  margin-bottom: 40px;
+  color:$chat-side-font-color;
+  &__name {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  &__message {
+    font-size: 11px;
+  }
+}
+
+.chat-main {
+  float: left;
+  width: calc(100vw - 300px);
+}
+
+.main-header {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  padding: 0 40px;
+  border-bottom: 1px solid #eeeeee;
+  &__edit {
+    position: absolute;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    border: solid 1px $flash-botton-color;
+    color:$flash-botton-color;
+    right: 40px;
+    top: 30px;
+    margin-top: auto;
+  }
+}
+.current-group {
+  margin-top: 35px;
+  &__name {
+    margin-bottom: 15px;
+    color: #333333;
+    font-size: 20px;
+  }
+  &__menber {
+    color:$menber-datetime-font-color;
+    font-size: 12px;
+  }
+}
+.messages {
+  overflow: scroll;
+  height: calc(100vh - 190px);
+  padding: 46px 40px 0 40px;
+  background-color: #fafafa;
+}
+.message{
+  margin-bottom: 40px;
+  &__text {
+    color: #434A54;
+    font-size: 14px;
+  }
+}
+.chat {
+  @include parallel;
+  margin-bottom: 10px;
+  &__user {
+    font-size: 16px;
+    color:$messege-font-color;
+    font-weight: bold;
+  }
+  &__datetime {
+    padding-left: 10px;
+    color:$menber-datetime-font-color;
+    font-size: 12px;
+  }
+}
+.form {
+  width: calc(100vw - 300px);
+  height: 90px;
+  padding: 20px 40px;
+  background-color: #ddd;
+}
+.new-message{
+  @include parallel;
+}
+.input-box{
+  position: relative;
+  width: 100%;
+  &__text {
+    width: 100%;
+    height: 50px;
+    padding: 0 0 0 10px;
+    border-style: none;
+    color: $messege-font-color;
+  }
+  &__image {
+    position: absolute;
+    font-size: 1.3rem;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+#message_image{
+ display: none;
+}
+.submit-btn {
+  width: 100px;
+  height: 50px;
+  margin-left: 15px;
+  padding:0 30px;
+  background-color:$flash-botton-color;
+  color: white;
+  cursor: pointer;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
