@@ -1,16 +1,14 @@
-.flash
- グループを作成しました
 .chat-space
  .chat-side
   .side-header
    .box
     .box__username
-     Test-user
+     =current_user.name
     .box__icon
-     =link_to "http://localhost:3000/", class: "box__btn" do
-      =fa_icon 'edit'
-     =link_to "http://localhost:3000/", class: "box__btn" do 
-      =fa_icon 'cog'
+     =link_to "http://localhost:3000/" do
+      =fa_icon 'edit',class: 'icon'
+     = link_to edit_user_path(current_user) do
+      = fa_icon 'cog', class: 'icon'
   .groups
    .group
     .group__name
