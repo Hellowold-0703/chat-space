@@ -20,9 +20,11 @@
     font-weight: bold;
   }
 }
+a {
+  text-decoration: none;
+}
 .icon {
-    color:$chat-side-font-color;
-    text-decoration: none;
+  color:$chat-side-font-color;
 }
 .groups {
   height: calc(100vh - 100px);
