@@ -21,6 +21,7 @@
   }
 }
 a {
+  color:$chat-side-font-color;
   text-decoration: none;
 }
 .icon {
@@ -33,13 +34,13 @@ a {
   font-weight: bold;
 }
 .group  {
-  margin-bottom: 40px;
   color:$chat-side-font-color;
   &__name {
     margin-bottom: 5px;
     font-size: 15px;
   }
   &__message {
+    margin-bottom: 40px;
     font-size: 11px;
   }
 }
