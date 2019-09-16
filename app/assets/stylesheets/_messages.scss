@@ -89,8 +89,8 @@ a {
 .message{
   margin-bottom: 40px;
   &__text {
-    color: #434A54;
-    font-size: 14px;
+  color: #434A54;
+  font-size: 14px;
   }
 }
 .chat {
@@ -127,7 +127,7 @@ a {
     color: $messege-font-color;
   }
 }
-.fa {
+.fa-image {
     position: absolute;
     font-size: 1.3rem;
     top: 15px;

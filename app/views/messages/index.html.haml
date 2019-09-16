@@ -10,22 +10,7 @@
    .main-header__edit
     Edit
   .messages
-   .message
-    .chat
-     .chat__user
-      huga
-     .chat__datetime
-      2019/9/10(TUE) 17:00:00
-    .message__text
-     こんばんわ！
-   .message
-    .chat
-     .chat__user
-      neko
-     .chat__datetime
-      2019/9/10(TUE) 18:00:00
-    .message__text
-     こんにちわ！
+   = render partial: "message", collection: @messages
   .form
    = form_for [@group, @message] do |f|
     .input-box
