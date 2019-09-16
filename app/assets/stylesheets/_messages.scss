@@ -113,7 +113,7 @@ a {
   padding: 20px 40px;
   background-color: #ddd;
 }
-.new-message{
+.new_message{
   @include parallel;
 }
 .input-box{
@@ -126,14 +126,14 @@ a {
     border-style: none;
     color: $messege-font-color;
   }
-  &__image {
+}
+.fa {
     position: absolute;
     font-size: 1.3rem;
-    top: 10px;
+    top: 15px;
     right: 10px;
     cursor: pointer;
   }
-}
 #message_image{
  display: none;
 }
