@@ -1,12 +1,14 @@
 .chat-space
- = render 'shared/chat-side'
+ = render "shared/chat-side"
  .chat-main
   .main-header
    .current-group
     .current-group__name
-     Test-group
-    .current-group__menber
-     Menber huga neko  
+     = @group.name    
+    .current-group__menber 
+     Menber:
+     - @group.users.each do |users| 
+      = users.name
    .main-header__edit
     Edit
   .messages
