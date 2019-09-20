@@ -8,5 +8,5 @@
  - if message.body.present?
   %p.message__text--body
    = message.body
- - else
+ - if message.image.url.present?
   = image_tag message.image.url, class: 'message__text--image'
