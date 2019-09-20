@@ -1,10 +1,3 @@
-.flash {
- height:25px;
- background-color:$flash-botton-color;
- color:$chat-side-font-color;
- font-size: 1rem;
- text-align: center;
-}
  .chat-side {
   float: left;
   width: 300px;
@@ -26,25 +19,29 @@
     font-size: 16px;
     font-weight: bold;
   }
-  &__btn{
-    color:$chat-side-font-color;
-    text-decoration: none;
-  }
+}
+a {
+  color:$chat-side-font-color;
+  text-decoration: none;
+}
+.icon {
+  color:$chat-side-font-color;
 }
 .groups {
   height: calc(100vh - 100px);
   padding: 20px 20px 0 20px;
   background-color: #2f3e51;
   font-weight: bold;
+  overflow: scroll;
 }
 .group  {
-  margin-bottom: 40px;
   color:$chat-side-font-color;
   &__name {
     margin-bottom: 5px;
     font-size: 15px;
   }
   &__message {
+    margin-bottom: 40px;
     font-size: 11px;
   }
 }
@@ -92,8 +89,8 @@
 .message{
   margin-bottom: 40px;
   &__text {
-    color: #434A54;
-    font-size: 14px;
+  color: #434A54;
+  font-size: 14px;
   }
 }
 .chat {
@@ -116,7 +113,7 @@
   padding: 20px 40px;
   background-color: #ddd;
 }
-.new-message{
+.new_message{
   @include parallel;
 }
 .input-box{
@@ -129,14 +126,14 @@
     border-style: none;
     color: $messege-font-color;
   }
-  &__image {
+}
+.fa-image {
     position: absolute;
     font-size: 1.3rem;
-    top: 10px;
+    top: 15px;
     right: 10px;
     cursor: pointer;
   }
-}
 #message_image{
  display: none;
 }

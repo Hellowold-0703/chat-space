@@ -1,54 +1,23 @@
-.flash
- グループを作成しました
 .chat-space
- .chat-side
-  .side-header
-   .box
-    .box__username
-     Test-user
-    .box__icon
-     =link_to "http://localhost:3000/", class: "box__btn" do
-      =fa_icon 'edit'
-     =link_to "http://localhost:3000/", class: "box__btn" do 
-      =fa_icon 'cog'
-  .groups
-   .group
-    .group__name
-     Test-group
-    .group__message
-     よろしくお願いします。
+ = render "shared/chat-side"
  .chat-main
   .main-header
    .current-group
     .current-group__name
-     Test-group
-    .current-group__menber
-     Menber huga neko  
+     = @group.name    
+    .current-group__menber 
+     Member:
+     - @group.users.each do |users| 
+      = users.name
    .main-header__edit
     Edit
   .messages
-   .message
-    .chat
-     .chat__user
-      huga
-     .chat__datetime
-      2019/9/10(TUE) 17:00:00
-    .message__text
-     こんばんわ！
-   .message
-    .chat
-     .chat__user
-      neko
-     .chat__datetime
-      2019/9/10(TUE) 18:00:00
-    .message__text
-     こんにちわ！
+   = render partial: "message", collection: @messages
   .form
-   %form{class: "new-message"}
+   = form_for [@group, @message] do |f|
     .input-box
-     %input{placeholder: "type a message", class: "input-box__text", type: "text"}
-     %label{class: "input-box__image",for: "message_image"}
-      %i{class:"fa fa-image"}
-      %input{type: "file", name: "image", id: "message_image"}
-    %input{type: "submit", name: "send", value: "Send", class: "submit-btn"} 
-    
+     = f.text_field :body, class: 'input-box__text', placeholder: 'type a message'
+     = f.label :image, class: 'input-box__image' do
+      = fa_icon 'picture-o', class:'fa fa-image'
+      = f.file_field :image, id: 'message_image'
+    = f.submit 'Send', class: 'submit-btn'
