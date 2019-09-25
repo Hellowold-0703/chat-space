@@ -32,7 +32,6 @@ $(function() {
     })
     .done(function(message) {
       var html = messageBuild(message);
-      console.log(message)
       $(".messages").append(html);
       $(".message__text--image[src=null]").hide();
       $(".imessage__text--image:not([src=null])").show();
