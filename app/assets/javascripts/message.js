@@ -37,8 +37,7 @@ $(function() {
       $(".message__text--image[src=null]").hide();
       $(".imessage__text--image:not([src=null])").show();
       $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight});
-      $(".input-box__text").val('');
-      $("#message_image").val('');
+      $("form")[0].reset();
       $(".submit-btn").removeAttr("disabled");
     })
     .fail(function(error) {
