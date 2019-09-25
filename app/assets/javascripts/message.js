@@ -34,7 +34,6 @@ $(function() {
       var html = messageBuild(message);
       $(".messages").append(html);
       $(".message__text--image[src=null]").hide();
-      $(".message__text--image:not([src=null])").show();
       $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight});
       $("form")[0].reset();
       $(".submit-btn").removeAttr("disabled");
