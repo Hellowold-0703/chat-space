@@ -14,6 +14,7 @@ $(function() {
                  <p class="message__text--body">
                  ${message.body}
                  </p>
+                 <img class="message__text--image" src = ${message.image.url}>
                </div>`
     return html;
   }
@@ -31,12 +32,18 @@ $(function() {
     })
     .done(function(message) {
       var html = messageBuild(message);
+      console.log(message)
       $(".messages").append(html);
+      $(".message__text--image[src=null]").hide();
+      $(".imessage__text--image:not([src=null])").show();
+      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight});
       $(".input-box__text").val('');
+      $("#message_image").val('');
       $(".submit-btn").removeAttr("disabled");
     })
     .fail(function(error) {
       alert("メッセージを入力してください");
+      $(".submit-btn").removeAttr("disabled");
     })
-  })
+  });
 });
