@@ -50,7 +50,6 @@ $(function() {
       $(".clearfix").on("click", ".chat-group-user__btn--add",function() {
         $(this).parent().remove();
         var id = $(this).attr("data-user-id");
-        console.log(id);
         var name = $(this).attr("data-user-name");
         appendGroupUsers(id, name);
       });
