@@ -57,8 +57,12 @@ $(function() {
         $(this).parent().remove();
       });
     })
-    .fail(function(){
+    .fail(function() {
       alert("ユーザー検索に失敗しました");
     })
+  });
+  
+  $(".chat-group-user__btn").on("click", function(){
+    $(this).parent().remove();
   });
 });
