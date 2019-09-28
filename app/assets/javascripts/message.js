@@ -43,4 +43,20 @@ $(function() {
       $(".submit-btn").removeAttr("disabled");
     })
   });
+
+  var reloadMessages = function() {
+    last_message_id = $(".messageid");
+    $.ajax ({
+      url: '/groups/group_id/api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message/id}
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+  }
 });
