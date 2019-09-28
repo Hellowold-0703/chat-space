@@ -21,7 +21,7 @@
   }
 }
 a {
-  color:$chat-side-font-color;
+  color:$flash-botton-color;
   text-decoration: none;
 }
 .icon {
@@ -35,12 +35,15 @@ a {
   overflow: scroll;
 }
 .group  {
-  color:$chat-side-font-color;
   &__name {
+    color:$chat-side-font-color;
+    text-decoration: none;
     margin-bottom: 5px;
     font-size: 15px;
   }
   &__message {
+    color:$chat-side-font-color;
+    text-decoration: none;
     margin-bottom: 40px;
     font-size: 11px;
   }
@@ -57,14 +60,15 @@ a {
   height: 100px;                          
   padding: 0 40px;
   border-bottom: 1px solid #eeeeee;
+  color:$flash-botton-color;
   &__edit {
+    z-index: 100;
     position: absolute;
     height: 40px;
     line-height: 40px;
     margin-top: 30px;
     padding: 0 20px;
     border: solid 1px $flash-botton-color;
-    color:$flash-botton-color;
     right: 40px;
   }
 }
