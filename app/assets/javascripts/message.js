@@ -1,7 +1,7 @@
 $(function() {
 
   function messageBuild(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-id=${message.id}>
                   <div class="chat">
                     <div class="chat__user">
                     ${message.name}
@@ -43,4 +43,29 @@ $(function() {
       $(".submit-btn").removeAttr("disabled");
     })
   });
+
+  if (document.URL.match('/messages')) {
+  var reloadMessages = function() {
+    last_message_id = $(".message").last().data('id');
+    $.ajax ({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function(message) {
+      insertHTML = messageBuild(message);
+      $(".messages").append(insertHTML);
+      $(".message__text--image[src=null]").hide();
+      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight});
+      });
+    })
+    .fail(function() {
+      alert("error");
+    });
+  }
+  } 
+  setInterval(reloadMessages, 5000);
 });
