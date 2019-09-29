@@ -1,21 +1,40 @@
 $(function() {
 
   function messageBuild(message){
-    var html = `<div class="message">
-                  <div class="chat">
-                    <div class="chat__user">
-                    ${message.name}
-                    </div>
-                    <div class="chat__datetime">
-                    ${message.created_at}
-                    </div>
-                  </div>
-                  <div class="message__text"></div>
-                  <p class="message__text--body">
-                  ${message.body}
-                  </p>
-                  <img class="message__text--image" src = ${message.image.url}>
-                </div>`
+  if (message.image.url != null) {
+    var html = '<div class="message" data-id=' + message.id +  '>' +
+                  '<div class="chat">' +
+                    '<div class="chat__user">' +
+                      message.user_name +
+                    '</div>' +
+                    '<div class="chat__datetime">' +
+                      message.created_at +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="message__text">' +
+                    '<p class="message__text--body">' +
+                      message.body +
+                    '</p>' +
+                    '<img src="' + message.image.url + '" class="message__text--image" >' +
+                  '</div>' +
+                '</div>'
+    }else {
+      var html = '<div class="message" data-id=' + message.id +  '>' +
+      '<div class="chat">' +
+        '<div class="chat__user">' +
+          message.user_name +
+        '</div>' +
+        '<div class="chat__datetime">' +
+          message.created_at +
+        '</div>' +
+      '</div>' +
+      '<div class="message__text">' +
+        '<p class="message__text--body">' +
+          message.body +
+        '</p>' +
+      '</div>' +
+    '</div>'
+  } 
     return html;
   }
   $("#new_message").on("submit", function(e) {
@@ -33,8 +52,7 @@ $(function() {
     .done(function(message) {
       var html = messageBuild(message);
       $(".messages").append(html);
-      $(".message__text--image[src=null]").hide();
-      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight});
+      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight}, 'fast');
       $("form")[0].reset();
       $(".submit-btn").removeAttr("disabled");
     })
@@ -45,18 +63,28 @@ $(function() {
   });
 
   var reloadMessages = function() {
-    last_message_id = $(".messageid");
+  if (document.URL.match('/messages')) {
+    last_message_id = $(".message").data('id');
     $.ajax ({
-      url: '/groups/group_id/api/messages',
+      url: 'api/messages',
       type: 'get',
       dataType: 'json',
-      data: {id: last_message/id}
+      data: {id: last_message_id}
     })
-    .done(function() {
+    .done(function(messages) {
       console.log("success");
+      var insertHTML = '';
+      messages.forEach(function(message) {
+      var html = insertHTML + messageBuild(message)
+      $(".messages").append(html);
+
+      $(".messages").animate({ scrollTop: $(".messages")[0].scrollHeight}, 'fast');
+      });
     })
     .fail(function() {
       console.log("error");
-    })
+    });
   }
+} 
+  setInterval(reloadMessages, 5000);
 });
