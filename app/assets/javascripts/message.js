@@ -1,22 +1,21 @@
 $(function() {
 
   function messageBuild(message){
-    var html = '<div class="message" data-id=' + message.id +  '>' +
-                  '<div class="chat">' +
-                    '<div class="chat__user">' +
-                      message.user_name +
-                    '</div>' +
-                    '<div class="chat__datetime">' +
-                      message.created_at +
-                    '</div>' +
-                  '</div>' +
-                  '<div class="message__text">' +
-                    '<p class="message__text--body">' +
-                      message.body +
-                    '</p>' +
-                    '<img src="' + message.image.url + '" class="message__text--image" }>' +
-                  '</div>' +
-                '</div>'
+    var html = `<div class="message" data-id=${message.id}>
+                  <div class="chat">
+                    <div class="chat__user">
+                    ${message.name}
+                    </div>
+                    <div class="chat__datetime">
+                    ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="message__text"></div>
+                  <p class="message__text--body">
+                  ${message.body}
+                  </p>
+                  <img class="message__text--image" src = ${message.image.url}>
+                </div>`
     return html;
   }
   $("#new_message").on("submit", function(e) {
@@ -64,7 +63,7 @@ $(function() {
       });
     })
     .fail(function() {
-      console.log("error");
+      alert("error");
     });
   }
   } 
